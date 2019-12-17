@@ -106,4 +106,20 @@ export class DataService {
     }
   }
 
+  // searchPhoto(term){
+  //   //ispukuva nova/posledna vrednost sekogas koga ima promena
+  //   this.searchedTerm.next(term);
+  //   this.searchPhotos(term)
+  //   .pipe(
+  //     debounceTime(1500)
+  //   )
+  //   .subscribe(
+  //     data=>{
+  //       this.photos=data.items;
+  //       console.log(term);
+  //       console.log(this.photos);
+  //     }
+  //   );
+  // }
+
 }
