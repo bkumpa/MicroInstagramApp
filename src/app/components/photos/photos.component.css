@@ -1,0 +1,15 @@
+.flex{
+    display:flex;
+    justify-content: space-between;
+    flex-direction: row;
+    /* align-self: center; */
+    align-items:stretch;
+    flex: 1 0 auto;
+}
+/* .card{
+    
+} */
+/* .card-body{
+    max-height: 100%;
+} */
+
