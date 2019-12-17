@@ -13,7 +13,7 @@ import { PhotodetailsComponent } from './components/photodetails/photodetails.co
 import { PhotoeditComponent } from './components/photoedit/photoedit.component';
 import { PhotoItemComponent } from './components/photo-item/photo-item.component';
 import { PhotouploadComponent } from './components/photoupload/photoupload.component';
-
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 
 const appRoutes: Routes = [
@@ -52,7 +52,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
-    )
+    ),
+    FlashMessagesModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

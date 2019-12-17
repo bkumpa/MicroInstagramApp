@@ -30,17 +30,11 @@
                     required [(ngModel)]="PhotoUrl" name="editUrl">
                 </div>
             </div>
-            <!-- <div class="form-group row">
-                <label class="control-label col-sm-2" for="editThumbUrl">ThumbUrl:</label>
-                <div class="col-md-10">
-                    <input type="text" class="form-control" id="editThumbUrl" placeholder="Edit thumburl..."
-                    required [(ngModel)]="selectedPhotoThumbUrl" name="editThumbUrl">
-                </div>
-            </div> -->
             <input type="submit" value="Upload" class=" btn btn-secondary btn-sm mr-2" [disabled]="!form.valid">
             <input type="button" value="Clear" class=" btn btn-warning btn-sm" (click)="resetField()">
         </form>
+        
 
     </div>
-    
+    <a [routerLink]="['/']" class="btn btn-light ml-auto text-secondary">Back to all photos</a>  
     

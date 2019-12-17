@@ -3,6 +3,7 @@ import { Photo } from 'src/app/models/photo.model';
 import { NgForm } from '@angular/forms';
 import { DataService } from 'src/app/services/data.service';
 import { format } from 'url';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-photoupload',
@@ -16,7 +17,7 @@ export class PhotouploadComponent implements OnInit {
   PhotoId:string='';
   PhotoUrl:string='';
 
-  constructor(private dataService:DataService) { }
+  constructor(private dataService:DataService, private flashMsg:FlashMessagesService) { }
 
   ngOnInit() {
   }
@@ -31,6 +32,9 @@ export class PhotouploadComponent implements OnInit {
 
   uploadPhoto(photo:Photo){
     this.dataService.uploadPhoto(photo);
+    this.flashMsg.show('Your photo has been successfully uploaded',{
+      cssClass:'alert-success',timeout:3000
+    })
   }
   resetField(){
     this.PhotoTitle='';

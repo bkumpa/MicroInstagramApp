@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Photo } from 'src/app/models/photo.model';
 import { NgForm } from '@angular/forms';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-photoedit',
@@ -17,7 +18,7 @@ export class PhotoeditComponent implements OnInit {
   selectedPhotoUrl:string='';
   selectedPhotoThumbUrl:string='';
 
-  constructor(private dataService:DataService) { }
+  constructor(private dataService:DataService, private flashMsg:FlashMessagesService) { }
 
   ngOnInit() {
     this.dataService.selectedPhoto.subscribe(resData=>{
@@ -29,10 +30,6 @@ export class PhotoeditComponent implements OnInit {
         this.selectedPhotoId=this.selectedPhoto.id;
         this.selectedPhotoUrl=this.selectedPhoto.url;
         this.selectedPhotoThumbUrl=this.selectedPhoto.thumbnailUrl;
-        // this.selectedLogDate=this.selectedLog.date;
-        // this.isNewLog=false;
-        console.log("ova dobiv");
-        console.log(this.selectedPhoto);
       }
       
     })
@@ -41,6 +38,9 @@ export class PhotoeditComponent implements OnInit {
   onSubmit(form:NgForm){
     const editedPhoto={albumId:this.selectedPhotoAlbumId, id:this.selectedPhotoId,title:this.selectedPhotoTitle};
     this.editPhoto(editedPhoto);
+    this.flashMsg.show('Changes has been successfully saved',{
+      cssClass:'alert-success',timeout:3000
+    })
     this.selectedPhotoTitle=''; 
   }
 

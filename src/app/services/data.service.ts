@@ -35,26 +35,12 @@ export class DataService {
     const resultData=this.http.get<any[]>(`https://jsonplaceholder.typicode.com/photos`);
     return resultData;
   }
-  //get photo details
-  fetchPhotoDetails(id){
-    if (!id) {
-      
-      return of([]);
-    }
-    else{
-      const resultData=this.http.get<any[]>(`https://jsonplaceholder.typicode.com/photos/${id}`);
-      return resultData;
-    }
-  }
     //delete photo
     deletePhoto(photo){
       fetch(`https://jsonplaceholder.typicode.com/posts/${photo.id}`, {
         method: 'DELETE'
       });
-      alert("Item deleted");
-      console.log("item deleted");
-      console.log(photo);
-      this.router.navigate(['/pagenotfound']);
+      this.router.navigate(['/']);
     }
 
     //edit photo
@@ -74,9 +60,6 @@ export class DataService {
       })
       .then(response => response.json())
       .then(json => console.log(json))
-      alert("Item edited");
-      console.log("this item was edited");
-      console.log(photo);
       // this.router.navigate(['/pagenotfound']);
     }
 
@@ -98,13 +81,20 @@ export class DataService {
       })
       .then(response => response.json())
       .then(json => console.log(json))
-      alert("Item uploaded");
-      console.log("this item was edited");
-      console.log(photo);
       // this.router.navigate(['/pagenotfound']);
     }
 
-
+  //get photo details
+  fetchPhotoDetails(id){
+    if (!id) {
+      
+      return of([]);
+    }
+    else{
+      const resultData=this.http.get<any[]>(`https://jsonplaceholder.typicode.com/photos/${id}`);
+      return resultData;
+    }
+  }
   searchPhotos(term: string): Observable<any> {
     if (!term) {
       
@@ -114,22 +104,6 @@ export class DataService {
       const resultData=this.http.get<any[]>(`https://jsonplaceholder.typicode.com/photos`);
       return resultData;
     }
-  }
-
-  searchPhoto(term){
-    //ispukuva nova/posledna vrednost sekogas koga ima promena
-    this.searchedTerm.next(term);
-    this.searchPhotos(term)
-    .pipe(
-      debounceTime(1500)
-    )
-    .subscribe(
-      data=>{
-        this.photos=data.items;
-        console.log(term);
-        console.log(this.photos);
-      }
-    );
   }
 
 }
