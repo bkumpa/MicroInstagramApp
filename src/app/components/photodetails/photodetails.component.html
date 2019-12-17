@@ -1,1 +1,27 @@
-<p>photodetails works!</p>
+<div class="" *ngIf="photo">
+    <div class="row">
+        <div class="card  card-body mb-3" >
+            <div class="row no-gutters">
+                <div class="col-md-7">
+                    <img src="{{photo.url}}" class="" alt="photo large">
+                </div>
+                <div class="col-md-5">
+                    <div class="card-body">
+                        <h5 class="card-title">Details</h5>
+                        <h6 class="card-subtitle mt-2 mb-4">Title:<span class="text-muted "> {{photo.title}}</span></h6>
+                        <h6 class="card-text-small mb-2 ">Album Id: <span class="text-muted">{{photo.albumId}}</span></h6>
+                        
+                        <h6 class="card-text-small mb-2 bold">Id: <span class="text-muted">{{photo.id}}</span> </h6>
+                        
+                        <h6 class="card-text-small mb-2 bold">thumbnailUrl:<span class="text-muted"> {{photo.thumbnailUrl}}</span></h6>
+                        <h6 class="card-text-small mb-5 bold">url: <span class="text-muted">{{photo.url}}</span></h6>
+
+                                           
+                        <p class="card-text"><a [routerLink]="['/photos/edit', photo.id]" class="btn btn-outline-secondary btn-block" (click)=onSelectEditPhoto(photo)>Edit</a></p>
+                        <a class="btn btn-outline-danger btn-block" (click)=deletePhoto(photo)>Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

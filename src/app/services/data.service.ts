@@ -19,12 +19,12 @@ export class DataService {
 
 
   private photoSource= new BehaviorSubject<Photo>({id:null, title:null, albumId:null});
-  selectedLog=this.photoSource.asObservable();
+  selectedPhoto=this.photoSource.asObservable();
 
   constructor(private http:HttpClient, private router: Router,) { }
 
 
-  setFormLog(photo){
+  setFormPhoto(photo){
     //ispukuva nova/posledna vrednost sekogas koga ima promena
     this.photoSource.next(photo);
   }
@@ -47,12 +47,61 @@ export class DataService {
     }
   }
     //delete photo
-    deletePhoto(photoId){
-      fetch(`https://jsonplaceholder.typicode.com/posts/${photoId}`, {
+    deletePhoto(photo){
+      fetch(`https://jsonplaceholder.typicode.com/posts/${photo.id}`, {
         method: 'DELETE'
       });
       alert("Item deleted");
-      this.router.navigate(['/photos']);
+      console.log("item deleted");
+      console.log(photo);
+      this.router.navigate(['/pagenotfound']);
+    }
+
+    //edit photo
+    editPhoto(photo){
+      fetch(`https://jsonplaceholder.typicode.com/photos/${photo.id}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+          id: photo.id,
+          title: photo.title,
+          albumId: photo.albumId,
+          thumbnailUrl: photo.thumbnailUrl,
+          url:photo.url
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      })
+      .then(response => response.json())
+      .then(json => console.log(json))
+      alert("Item edited");
+      console.log("this item was edited");
+      console.log(photo);
+      // this.router.navigate(['/pagenotfound']);
+    }
+
+    //upload photo
+
+    uploadPhoto(photo){
+      fetch(`https://jsonplaceholder.typicode.com/photos`, {
+        method: 'POST',
+        body: JSON.stringify({
+          id: photo.id,
+          title: photo.title,
+          albumId: photo.albumId,
+          thumbnailUrl: photo.thumbnailUrl,
+          url:photo.url
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      })
+      .then(response => response.json())
+      .then(json => console.log(json))
+      alert("Item uploaded");
+      console.log("this item was edited");
+      console.log(photo);
+      // this.router.navigate(['/pagenotfound']);
     }
 
 

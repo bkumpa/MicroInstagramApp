@@ -12,14 +12,17 @@ import { PhotosComponent } from './components/photos/photos.component';
 import { PhotodetailsComponent } from './components/photodetails/photodetails.component';
 import { PhotoeditComponent } from './components/photoedit/photoedit.component';
 import { PhotoItemComponent } from './components/photo-item/photo-item.component';
+import { PhotouploadComponent } from './components/photoupload/photoupload.component';
 
 
 
 const appRoutes: Routes = [
   { path: '', component: PhotosComponent },
   { path: 'photos', component: PhotosComponent },
+  { path: 'uploadphoto', component: PhotouploadComponent },
   { path: 'photos/:id', component: PhotodetailsComponent },
   { path: 'photos/edit/:id', component: PhotoeditComponent },
+  
   // { path: 'search', component: SearchComponent },
   // { path: 'p', component: PostsComponent },
   // { path: 'posts', component: PostsComponent },
@@ -41,7 +44,8 @@ const appRoutes: Routes = [
     PhotosComponent,
     PhotodetailsComponent,
     PhotoeditComponent,
-    PhotoItemComponent
+    PhotoItemComponent,
+    PhotouploadComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,FormsModule,
