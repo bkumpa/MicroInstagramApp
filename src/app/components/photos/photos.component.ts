@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
-
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-photos',
@@ -10,13 +10,16 @@ import { DataService } from 'src/app/services/data.service';
 export class PhotosComponent implements OnInit {
   photos=[];
 
-  constructor(private dataService:DataService) { }
+  constructor(private dataService:DataService, private spinner:NgxSpinnerService ) { }
 
   ngOnInit() {
+    this.spinner.show();
     this.dataService.getAllPhotos().subscribe(resData=>{
       
       this.photos=resData;
       console.log(this.photos);
+      this.spinner.hide();
+
     })
   
   }

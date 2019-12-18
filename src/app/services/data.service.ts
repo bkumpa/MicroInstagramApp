@@ -21,7 +21,7 @@ export class DataService {
   private photoSource= new BehaviorSubject<Photo>({id:null, title:null, albumId:null});
   selectedPhoto=this.photoSource.asObservable();
 
-  constructor(private http:HttpClient, private router: Router,) { }
+  constructor(private http:HttpClient, private router: Router) { }
 
 
   setFormPhoto(photo){

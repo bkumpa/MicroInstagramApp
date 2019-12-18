@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
@@ -14,7 +14,7 @@ import { PhotoeditComponent } from './components/photoedit/photoedit.component';
 import { PhotoItemComponent } from './components/photo-item/photo-item.component';
 import { PhotouploadComponent } from './components/photoupload/photoupload.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
-
+import { NgxSpinnerModule } from "ngx-spinner";
 
 const appRoutes: Routes = [
   { path: '', component: PhotosComponent },
@@ -48,7 +48,7 @@ const appRoutes: Routes = [
     PhotouploadComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule,FormsModule,
+    BrowserModule, HttpClientModule,FormsModule,NgxSpinnerModule,BrowserAnimationsModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

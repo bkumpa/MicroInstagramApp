@@ -1,4 +1,17 @@
-.card {
-    flex: 1 0 auto;
-   }
-   
+
+    
+  .wrapper {
+    min-height: 270px;
+  }
+    
+.box{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    }
+
+a.btn.btn-link.btn-block.btn-sm {
+    white-space: nouiwrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
