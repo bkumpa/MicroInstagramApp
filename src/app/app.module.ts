@@ -22,15 +22,6 @@ const appRoutes: Routes = [
   { path: 'uploadphoto', component: PhotouploadComponent },
   { path: 'photos/:id', component: PhotodetailsComponent },
   { path: 'photos/edit/:id', component: PhotoeditComponent },
-  
-  // { path: 'search', component: SearchComponent },
-  // { path: 'p', component: PostsComponent },
-  // { path: 'posts', component: PostsComponent },
-  // { path: 'profile/:username', component: UserprofileComponent,
-  //   children: [
-  //     {path: '', component:PostsComponent}
-  //   ] 
-  // },
   { path: '**', component: PagenotfoundComponent }
 ];
 
@@ -48,7 +39,8 @@ const appRoutes: Routes = [
     PhotouploadComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule,FormsModule,NgxSpinnerModule,BrowserAnimationsModule,
+    BrowserModule, HttpClientModule,FormsModule,
+    NgxSpinnerModule,BrowserAnimationsModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
@@ -56,6 +48,7 @@ const appRoutes: Routes = [
     FlashMessagesModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

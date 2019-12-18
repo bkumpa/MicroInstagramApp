@@ -14,3 +14,15 @@
 >
   <p style="font-size: 20px; color: white">Loading...</p>
 </ngx-spinner>
+<div
+    class="search-results"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="100"
+    (scrolled)="onScroll()"
+></div>
+<loading-spinner *ngIf="!finished"></loading-spinner>
+<div *ngIf="!finished">
+    Loading more movies...
+   </div>
+<div class="notification is-warning" *ngIf="finished">End of database my friends</div>

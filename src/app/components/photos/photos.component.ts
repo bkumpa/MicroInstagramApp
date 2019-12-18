@@ -8,7 +8,7 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrls: ['./photos.component.css']
 })
 export class PhotosComponent implements OnInit {
-  photos=[];
+  photos;
 
   constructor(private dataService:DataService, private spinner:NgxSpinnerService ) { }
 
