@@ -1,11 +1,28 @@
 
 <div class="flex mb-5 mt-5" > 
     <div class="row mg-bottom">
-        <ng-container *ngFor="let photo of photos">
+        <ng-container *ngFor="let photo of photos | paginate: { itemsPerPage: 16, currentPage: p }">
             <app-photo-item class="col-xs-12 col-md-3" [photo]="photo"></app-photo-item>
         </ng-container>
     </div>
 </div>
+ <!--Including the pagination control.-->
+ <div class="text-center">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+<!-- <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav> -->
 <ngx-spinner
   bdColor="rgba(51,51,51,0.2)"
   size="medium"

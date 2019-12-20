@@ -15,6 +15,7 @@ import { PhotoItemComponent } from './components/photo-item/photo-item.component
 import { PhotouploadComponent } from './components/photoupload/photoupload.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const appRoutes: Routes = [
   { path: '', component: PhotosComponent },
@@ -40,7 +41,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule, HttpClientModule,FormsModule,
-    NgxSpinnerModule,BrowserAnimationsModule,
+    NgxSpinnerModule,BrowserAnimationsModule, NgxPaginationModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

@@ -9,9 +9,13 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class PhotosComponent implements OnInit {
   photos;
-
-  constructor(private dataService:DataService, private spinner:NgxSpinnerService ) { }
-
+collection = [];
+  constructor(private dataService:DataService, private spinner:NgxSpinnerService ) {
+    // for(let i=1;i<=100;i++){
+    //   let Obj = {'name': `Employee Name ${i}`,'code': `EMP00 ${i}`}
+    //   this.collection.push(Obj);
+    // }
+   }
   ngOnInit() {
     this.spinner.show();
     this.dataService.getAllPhotos().subscribe(resData=>{
